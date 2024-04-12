@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Citas</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="shortcut icon" href="./img/form.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>📊 Editar Citas</h2>
+      <form th:action="" th:object="" method="post">
+
+        <div class="form-control hidden">
+          <input th:field="" type="number" name="codcit" readonly  />
+        </div>
+
+        <div class="form-control">
+          <input th:field="" type="date" name="datecit" required />
+        </div>
+
+        <div class="form-control">
+          <textarea th:field="" name="descit" rows="9" placeholder="Descripcion" required></textarea>
+        </div>
+
+        <div class="form-control">
+          <input th:field="" type="number" name="coddoc" placeholder="Codigo del Doctor" required/>
+        </div>
+
+        <div class="form-control">
+          <input th:field="" type="number" name="dnicli" placeholder="DNI del Cliente" required/>
+        </div>
+
+        <div class="form-control">
+          <input th:field="" type="number" name="codrec" placeholder="Codigo del Recepcionista" required/>
+        </div>
+
+        <button class="btn" id="send">Enviar</button>
+      </form>
+    </div>
+  </body>
+</html>

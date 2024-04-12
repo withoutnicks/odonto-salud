@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Doctores</title>
+    <link rel="stylesheet" href="../style.css">
+  <link rel="shortcut icon" href="./img/form.png" type="image/x-icon">
+</head>
+<body>
+  <div class="container">
+		<h2>👨🏽‍⚕️ Editar Doctores</h2>
+		<form th:action="" th:object="" method="post">
+
+      <div class="form-control hidden">
+        <input th:field="" type="number" name="coddoc" placeholder="Codigo" required />
+      </div>
+
+      <div class="form-control">
+				<input th:field="" type="text" name="coldoc" placeholder="Nro Colegiatura" required />
+			</div>
+
+      <div class="form-control">
+				<input th:field="" type="text" name="nomdoc" placeholder="Nombre" required />
+			</div>
+
+      <div class="form-control">
+				<input th:field="" type="tel" name="teldoc" placeholder="Telefono" required />
+			</div>
+
+      <div class="form-control">
+				<input th:field="" type="number" name="suedoc" placeholder="Sueldo" required />
+			</div>
+            
+			<button class="btn" id="send">Enviar</button>
+		</form>
+	</div>
+</body>
+</html>

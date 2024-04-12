@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citas - OS</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="shortcut icon" href="../img/home.png" type="image/x-icon">
+</head>
+
+<body>
+  <header class="header">
+    <section class="secBotones">
+      <h1 class="header__title">Odonto-Salud</h1>
+      <a th:href="@{/newcitas}">
+        <button class="btnHome btnAgregar" name="add">Nueva Cita</button>
+      </a>     
+    </section>
+    
+    <nav class="header__nav">
+      <ul class="nav__ul">
+        <li>
+          <a href="#" class="active">Citas</a>
+        </li>
+        <li>
+          <a th:href="@{/doctores}">Doctores</a>
+        </li>
+        <li>
+          <a th:href="@{/clientes}">Clientes</a>
+        </li>
+        <li>
+          <a th:href="@{/recepcionistas}">Recepcionistas</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <table class="tbl act">
+      <thead>
+        <tr>
+          <th>Fecha cita</th>
+          <th>Descripcion</th>
+          <th>Doctor</th>
+          <th>Cliente</th>
+          <th>Recepcionista</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="cita:${citasActivas}">
+          <td th:text="${cita.dateCit}"></td>
+          <td th:text="${cita.razCit}"></td>
+          <td th:text="${cita.docId.nomDoc}"></td>
+          <td th:text="${cita.dniUsu.nomUsu}"></td>
+          <td th:text="${cita.recId.nomRec}"></td>
+          <td th:text="${cita.estCit}"></td>
+          <td>
+            <a>
+              <button class="btnHome btnEditar">Editar</button>
+            </a>
+            <a>
+              <button class="btnHome btnEliminar" id="delete">Eliminar</button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <table class="tbl pro">
+      <thead>
+        <tr>
+          <th>Fecha cita</th>
+          <th>Descripcion</th>
+          <th>Doctor</th>
+          <th>Cliente</th>
+          <th>Recepcionista</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="cita:${citasProgramadas}">
+          <td th:text="${cita.dateCit}"></td>
+          <td th:text="${cita.razCit}"></td>
+          <td th:text="${cita.docId.nomDoc}"></td>
+          <td th:text="${cita.dniUsu.nomUsu}"></td>
+          <td th:text="${cita.recId.nomRec}"></td>
+          <td th:text="${cita.estCit}"></td>
+          <td>
+            <a>
+              <button class="btnHome btnEditar">Editar</button>
+            </a>
+            <a>
+              <button class="btnHome btnEliminar" id="delete">Eliminar</button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <a href="/logout" class="btnHome">Cerrar sesión</a>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+
+</html>

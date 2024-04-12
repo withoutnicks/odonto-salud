@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes - OS</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="shortcut icon" href="../img/home.png" type="image/x-icon">
+</head>
+
+<body>
+  <header class="header">
+    <section class="secBotones">
+      <h1 class="header__title">Odonto-Salud</h1>
+      <a th:href="@{/newclientes}">
+        <button class="btnHome btnAgregar" name="add">Nuevo Cliente</button>
+      </a>     
+    </section>
+    
+    <nav class="header__nav">
+      <ul class="nav__ul">
+        <li>
+          <a th:href="@{/home}">Citas</a>
+        </li>
+        <li>
+          <a th:href="@{/doctores}">Doctores</a>
+        </li>
+        <li>
+          <a href="#" class="active">Clientes</a>
+        </li>
+        <li>
+          <a th:href="@{/recepcionistas}">Recepcionistas</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>DNI</th>
+          <th>Nombre</th>
+          <th>Telefono</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="cliente:${clientes}">
+          <td th:text="${cliente.dniUsu}"></td>
+          <td th:text="${cliente.nomUsu}"></td>
+          <td th:text="${cliente.telUsu}"></td>
+          <td th:text="${cliente.estUsu}"></td>
+          <td>
+            <a>
+              <button class="btnHome btnEditar">Editar</button>
+            </a>
+            <a>
+              <button class="btnHome btnEliminar" id="delete">Eliminar</button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../index.js"></script>
+</body>
+
+</html>

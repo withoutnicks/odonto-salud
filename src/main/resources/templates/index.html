@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Login</title>
+	<link rel="stylesheet" href="./style.css">
+	<link rel="shortcut icon" href="../img/login.png" type="image/x-icon" />
+</head>
+
+<body>
+	<div class="container">
+		<h1>Odonto-Salud</h1>
+		<form action="/login" method="post">
+			<div class="form-control">
+				<input type="text" name="username" id="username" placeholder="Username" autocomplete="off" required />
+			</div>
+
+			<div class="form-control">
+				<input type="password" name="password" id="password" placeholder="Password" required />
+			</div>
+
+			<button type="submit" id="send" class="btn">Login</button>
+		</form>
+	</div>
+	<img src="https://odontosaludec.com/wp-content/uploads/2023/12/odontosalud-1200x1089.png" width="300" class="img-login" />
+</body>
+</html>
