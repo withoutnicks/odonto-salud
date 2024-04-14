@@ -7,7 +7,7 @@ import wts.dev.entity.Doctors;
 
 public interface IDoctorsService {
 	public List<Doctors> listDoctors();
+	public List<Doctors> listDoctorsInac();
 	public Optional<Doctors> listIdDoc(int idDoc);
 	public int saveDoc(Doctors d);
-	public void deleteDoc(int idDoc);
 }

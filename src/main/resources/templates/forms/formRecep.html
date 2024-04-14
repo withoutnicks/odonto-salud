@@ -5,26 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario Recepcionistas</title>
     <link rel="stylesheet" href="../style.css">
-  <link rel="shortcut icon" href="./img/form.png" type="image/x-icon">
+		<link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
 </head>
 <body>
-  <div class="container">
+  <div class="container form">
 		<h2>👩🏽‍💻 Recepcionistas</h2>
-		<form method="post">
+		<form th:action="@{/saveRecep}" th:object="${recep}" method="post">
 
-      <div class="form-control">
-				<input type="text" name="nomrec" placeholder="Nombre" required />
+      		<div class="form-control">
+				<input type="text" th:field="*{nomRec}" placeholder="Nombre" required />
 			</div>
 
-      <div class="form-control">
-				<input type="tel" name="telrec" placeholder="Telefono" required />
+      		<div class="form-control">
+				<input type="tel" th:field="*{telRec}" placeholder="Telefono" minlength="9" maxlength="9" required />
 			</div>
 
-      <div class="form-control">
-				<input type="number" name="suerec" placeholder="Sueldo" required />
+      		<div class="form-control">
+				<input type="number" th:field="*{sueRec}" placeholder="Sueldo" required />
+			</div>
+			
+			<div class="form-control">
+				<select th:field="*{estRec}" required>
+				  <option value="activo">Activo</option>
+				  <option value="inactivo">Inactivo</option>
+				</select>
 			</div>
             
-			<button class="btn" id="send">Enviar</button>
+			<button class="btn" type="submit" value="send">Enviar</button>
 		</form>
 	</div>
 </body>

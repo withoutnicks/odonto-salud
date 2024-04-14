@@ -28,14 +28,18 @@ public class QuotesService implements IQuotesService{
 
 	@Override
 	public Optional<Quotes> listIdCit(int idCit) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return data.findById(idCit);
 	}
 
 	@Override
 	public int saveCit(Quotes q) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = 0;
+		Quotes cita = data.save(q);
+		if(!cita.equals(null)) {
+			res = 1;
+		}
+		
+		return res;
 	}
 
 	@Override

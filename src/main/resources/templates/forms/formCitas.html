@@ -1,39 +1,50 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario Citas</title>
-    <link rel="stylesheet" href="../style.css">
-  <link rel="shortcut icon" href="./img/form.png" type="image/x-icon">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulario Citas</title>
+	<link rel="stylesheet" href="../style.css">
+	<link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
 </head>
 
 <body>
-  <div class="container">
+	<div class="container form">
 		<h2>📊 Citas</h2>
-		<form method="post">
+		<form th:action="@{/saveQuotes}" th:object="${cita}" method="post">
 			<div class="form-control">
-				<input type="date" name="datecit" required />
-			</div>
-
-      <div class="form-control">
-				<textarea name="descit" rows="9" placeholder="Descripcion" required></textarea>
+				<input type="date" th:field="*{dateCit}" required />
 			</div>
 
 			<div class="form-control">
-				<input type="number" name="coddoc" placeholder="Codigo del Doctor" required />
+				<textarea th:field="*{razCit}" placeholder="Descripcion" required></textarea>
 			</div>
 
-      <div class="form-control">
-				<input type="number" name="dnicli" placeholder="DNI del Cliente" required />
+			<div class="form-control">
+				<input type="number" th:field="*{docId}" placeholder="Codigo del Doctor" required />
 			</div>
 
-      <div class="form-control">
-				<input type="number" name="codrec" placeholder="Codigo del Recepcionista" required />
+			<div class="form-control">
+				<input type="text" th:field="*{dniUsu}" minlength="9" maxlength="9" placeholder="DNI del Cliente"
+					required />
 			</div>
-            
+
+			<div class="form-control">
+				<input type="number" th:field="*{recId}" placeholder="Codigo del Recepcionista" required />
+			</div>
+
+			<div class="form-control">
+				<select th:field="*{estCit}" required>
+					<option value="programada">Programada</option>
+					<option value="activa">Activo</option>
+					<option value="cancelada">Cancelado</option>
+				</select>
+			</div>
+
 			<button class="btn" id="send">Enviar</button>
 		</form>
 	</div>
 </body>
+
 </html>

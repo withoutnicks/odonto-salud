@@ -5,26 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario Clientes</title>
     <link rel="stylesheet" href="../style.css">
-  <link rel="shortcut icon" href="./img/form.png" type="image/x-icon">
+		<link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
 </head>
 <body>
-  <div class="container">
+  <div class="container form">
 		<h2>👦🏽 Clientes</h2>
-		<form method="post">
+		<form th:action="@{/saveClient}" th:object="${cliente}" method="post">
 
-      <div class="form-control">
-				<input type="text" name="dnicli" placeholder="DNI" required />
+      		<div class="form-control">
+				<input type="text" th:field="*{dniUsu}" placeholder="DNI" minlength="8" maxlength="8" required />
 			</div>
 
-      <div class="form-control">
-				<input type="text" name="nomcli" placeholder="Nombre" required />
+      		<div class="form-control">
+				<input type="text" th:field="*{nomUsu}" placeholder="Nombre" required />
 			</div>
 
-      <div class="form-control">
-				<input type="tel" name="telcli" placeholder="Telefono" required />
+      		<div class="form-control">
+				<input type="tel" th:field="*{telUsu}" placeholder="Telefono" minlength="9" maxlength="9" required />
+			</div>
+			
+			<div class="form-control">
+				<select th:field="*{estUsu}" required>
+				  <option value="activo">Activo</option>
+				  <option value="inactivo">Inactivo</option>
+				</select>
 			</div>
             
-			<button class="btn" id="enviar">Enviar</button>
+			<button class="btn" type="submit" value="Save">Enviar</button>
 		</form>
 	</div>
 </body>

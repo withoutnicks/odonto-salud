@@ -3,43 +3,126 @@
 
 * {
 	box-sizing: border-box;
+	margin: 0;
 }
 
 body {
-	background-color: #d8eefe;
-	color: #fff;
+	background-color: #f2f7f5;
 	font-family: "Muli", sans-serif;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 0;
-	height: auto;
+	height: 100vh;
 }
 
 /* LOGIN */
-
 .container {
-	background-color: rgba(255, 255, 255, 0.4);
+	background-color: #fff;
+	border: 2px solid #00332c;
 	padding: 20px 40px;
-	border-radius: 5px;
+	border-radius: 8px;
 	margin: auto;
+	text-align: center;
+
+	& h1 {
+		text-align: center;
+		margin-bottom: 30px;
+		color: #00473e;
+	}
+	& a {
+    text-decoration: none;
+  }
+	&.form {
+		width: 400px;
+		padding: 16px 24px;
+	}
+}
+
+.img-login {
+	width: 300px;
 	margin-top: 16px;
+	mask-image: linear-gradient(black 80%, transparent);
 }
 
-.container h1 {
-	text-align: center;
-	margin-bottom: 30px;
-	color: #094067;
+.form-control {
+	margin: 16px 0 32px;
 }
 
-h2 {
-	text-align: center;
-	color: #094067;
+.form-control input {
+	background-color: transparent;
+	border: 0;
+	border-bottom: 2px #00473e solid;
+	display: block;
+	width: 100%;
+	padding: 16px 0;
+	font-size: 16px;
+	color: #000;
+
+	&:focus, :valid{
+		outline: 0;
+		border-bottom-color: #faae2b;
+	}
+
+	&::placeholder {
+    color: #00473e;
+  }
 }
 
-.container a {
+.input {
+	padding: 8px;
+	width: 250px;
+}
+
+.btn {
+	cursor: pointer;
+	display: inline-block;
+	width: 100%;
+	background: #faae2b;
+	color: #00473e;
+	padding: 8px;
+	font-family: inherit;
+	font-size: 16px;
+	border: 2px solid #00332c;
+	border-radius: 8px;
+	font-weight: 600;
 	text-decoration: none;
-	color: lightgreen;
+
+	&:focus {
+		outline: 0;
+	}
+	
+	&:active {
+		transform: scale(0.98);
+	}
+
+	&.btnAgregar {
+		border: none;
+		background: transparent;
+		color: #fff;
+		margin: auto 4px;
+	};
+
+	&.btnEditar {
+		background: #EEE88E;
+		border: none;
+		padding: 8px;
+		width: 2rem;
+		margin: auto 4px;
+	};
+	
+	&.btnEliminar {
+		border: none;
+		background: #DA3848;
+		color: #fff;
+		padding: 8px;
+		margin: auto 4px;
+	};
+	&.btnSearch {
+		border: none;
+		background: rgb(0, 128, 128);
+		color: #fff;
+		font-weight: 400;
+	}
 }
 
 .small {
@@ -48,105 +131,26 @@ h2 {
 	color: #333333;
 }
 
-.img-login {
-	margin-top: 24px;
-	mask-image: linear-gradient(black 80%, transparent);
-}
-
-.btn {
-	cursor: pointer;
-	display: inline-block;
+.w-full {
 	width: 100%;
-	background: #3da9fc;
-	padding: 15px;
-	font-family: inherit;
-	font-size: 16px;
-	border: 0;
-	border-radius: 5px;
 }
 
-.btnHome {
-	cursor: pointer;
+.w-auto {
 	width: auto;
-	background: rgb(252, 252, 252);
-	padding: 15px;
-	font-family: inherit;
-	font-size: 16px;
-	border: 0;
-	border-radius: 5px;
-	text-decoration: none;
-
-	&.btnAgregar {
-		background: #5F80D9;
-		color: #fff;
-		margin: auto 4px;
-	};
-
-	&.btnEditar {
-		background: #EEE88E;
-		padding: 8px;
-		width: 6rem;
-		margin: auto 4px;
-	};
-
-	&.btnEliminar {
-		background: #DA3848;
-		color: #fff;
-		width: 6rem;
-		padding: 8px;
-		margin: auto 4px;
-	};
 }
 
-.btn:focus {
-	outline: 0;
-}
-
-.btn:active {
-	transform: scale(0.98);
-}
 
 .footer {
 	margin-top: 30px;
 }
 
-.form-control {
-	position: relative;
-	margin: 20px 0 30px;
-	width: 300px;
-}
-
-.form-control input {
-	background-color: transparent;
-	border: 0;
-	border-bottom: 2px #094067 solid;
-	display: block;
-	width: 100%;
-	padding: 15px 0;
-	font-size: 18px;
-	color: #094067;
-}
 
 textarea {
 	width: 100%;
-	padding: 8px;
+	padding: 16px 8px;
 	resize: none;
-}
-
-.form-control input:focus,
-.form-control input:valid {
-	outline: 0;
-	border-bottom-color: #094067;
-}
-
-.form-control input::placeholder {
-	color: #094067;
-}
-
-.form-control input:focus + label span,
-.form-control input:valid + label span {
-	color: lightgreen;
-	transform: translateY(-30px);
+	border-radius: 5px;
+	field-sizing: content;
 }
 
 .footer {
@@ -156,8 +160,16 @@ textarea {
 
 /* HOME */
 
+.section {
+	display: flex;
+	justify-content: space-around;
+	padding: 16px;
+	align-items: center;
+	text-align: center;
+}
+
 .header {
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: #00473e;
 	width: 100vw;
 	text-align: center;
 	justify-content: flex-start;
@@ -165,22 +177,23 @@ textarea {
 
 .header__title {
 	font-family: "Pacifico", cursive;
-	font-size: 32px;
 	font-weight: 400;
-	color: #5F80D9;
+	color: #fff;
 	margin: 0;
 }
 
 .header__nav {
-	background-color: rgba(255, 255, 255, 0.4);
+	background-color: #f2f7f5;
+	padding: 16px 0;
 }
 
 .nav__ul {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: center;
+	gap: 16px;
 	margin: 0;
-	padding: 8px;
+	padding: 4px;
 }
 
 li {
@@ -189,25 +202,30 @@ li {
 
 .nav__ul a {
 	text-decoration: none;
-	color: black;
+	color: #fff;
+	cursor: pointer;
+	background-color: #00332c;
+	border-radius: 8px;
+	border: 2px solid #000;
+	padding: 4px 16px;
 }
 
 .nav__ul a.active {
-	color: #5F80D9;
+	color: #faae2b;
 	font-weight: 600;
 }
 
 .nav__ul a:hover {
-	color: #5F80D9;
+	color: #faae2b;
 }
 
 /* HOME - TABLE */
 
 table.tbl {
-	margin: 16px auto;
-  width: 100%;
+  margin: 16px auto;
+  width: 80vw;
   background-color: #FFFFFF;
-  border-collapse: collapse;
+  border-collapse: separate;
   color: #000000;
 	border: 1px solid #475E47;;
 	font-size: 16px;
@@ -215,46 +233,44 @@ table.tbl {
 
 table.tbl, table.tbl th {
   border-color: #fff;
-  color: #fff;
-  border-style: solid;
-  padding: 8px;
+  padding: 4px;
 }
 
 table.tbl td {
+	text-align: center;
 	color: #000000;
 	padding: 8px;
 }
 
 table.tbl thead {
   background-color: #5F80D9;
-  
-  &.act {
-	  background-color: rgb(0, 128, 128);
-  }
-  
-  &.pro {
-	  background-color: #EEE88E;
-  }
-}
 
-.secBotones {
-	display: flex;
-	justify-content: space-around;
-	padding: 16px;
-	align-items: center;
-	text-align: center;
+	&.act {
+	  background-color: rgb(0, 128, 128);
+		color: #fff;
+	}
+
+	&.pro {
+	  background-color: #EEE88E;
+		color: #000;
+	}
+	
+	&.ina {
+		background: #5f6c7b;
+		color: #fff;
+	}
 }
 
 /* SELECT */
 
-.select {
+select {
 	cursor: pointer;
 	outline:0;
-	color: #333333;
-	font-size: 14px;
-	padding: 8px 10px;
+	color: #000;
+	font-size: 16px;
+	padding: 16px 4px;
 	width: 100%;
-	border-radius: 3px;
+	border-radius: 5px;
 	border: 1px solid #d6d6d6;
 	background-color: #ffffff;
 }
@@ -262,3 +278,16 @@ table.tbl thead {
 .hidden {
 	display: none;
 }
+
+p.title-h3 {
+	font-size: 18px;
+	font-weight: 600;
+	margin: 8px 0;
+	padding: 8px;
+	color: #00332c;
+}
+
+a {
+	text-decoration: none;
+}
+

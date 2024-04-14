@@ -23,21 +23,18 @@ public class PatientsService implements IPatientsService{
 	
 	@Override
 	public Optional<Patients> listIdCli(String idCli) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return data.findById(idCli);
 	}
 
 	@Override
 	public int saveCli(Patients p) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void deleteCli(String idCli) {
-		// TODO Auto-generated method stub
+		int res = 0;
+		Patients cli = data.save(p);
+		if(!cli.equals(null)) {
+			res = 1;
+		}
 		
+		return res;
 	}
-
 
 }

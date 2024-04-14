@@ -20,23 +20,26 @@ public class ReceptionistsService implements IReceptionistsService {
 	public List<Receptionists> listReceptionists() {
 		return data.findByEstRec(Receptionists.EstRec.activo);
 	}
+	
+	@Override
+	public List<Receptionists> listRecepIna() {
+		return data.findByEstRec(Receptionists.EstRec.inactivo);
+	}
 
 	@Override
 	public Optional<Receptionists> listIdRec(int idRec) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return data.findById(idRec);
 	}
 
 	@Override
 	public int saveRec(Receptionists r) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void deleteRec(int idRec) {
-		// TODO Auto-generated method stub
+		int res = 0;
+		Receptionists recep = data.save(r);
+		if(!recep.equals(null)) {
+			res = 1;
+		}
 		
+		return res;
 	}
 
 }

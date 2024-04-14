@@ -2,73 +2,81 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clientes - OS</title>
-  <link rel="stylesheet" href="../style.css">
-  <link rel="shortcut icon" href="../img/home.png" type="image/x-icon">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clientes - OS</title>
+	<link rel="stylesheet" href="../style.css">
+	<link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+	<script src="https://kit.fontawesome.com/c851fe2c54.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header class="header">
-    <section class="secBotones">
-      <h1 class="header__title">Odonto-Salud</h1>
-      <a th:href="@{/newclientes}">
-        <button class="btnHome btnAgregar" name="add">Nuevo Cliente</button>
-      </a>     
-    </section>
-    
-    <nav class="header__nav">
-      <ul class="nav__ul">
-        <li>
-          <a th:href="@{/home}">Citas</a>
-        </li>
-        <li>
-          <a th:href="@{/doctores}">Doctores</a>
-        </li>
-        <li>
-          <a href="#" class="active">Clientes</a>
-        </li>
-        <li>
-          <a th:href="@{/recepcionistas}">Recepcionistas</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <table class="tbl">
-      <thead>
-        <tr>
-          <th>DNI</th>
-          <th>Nombre</th>
-          <th>Telefono</th>
-          <th>Estado</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="cliente:${clientes}">
-          <td th:text="${cliente.dniUsu}"></td>
-          <td th:text="${cliente.nomUsu}"></td>
-          <td th:text="${cliente.telUsu}"></td>
-          <td th:text="${cliente.estUsu}"></td>
-          <td>
-            <a>
-              <button class="btnHome btnEditar">Editar</button>
-            </a>
-            <a>
-              <button class="btnHome btnEliminar" id="delete">Eliminar</button>
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+	<header class="header">
+		<section class="section">
+			<h1 class="header__title">Odonto-Salud</h1>
 
-  </main>
+			<form th:action="@{/searchClient}" method="get">
+				<input type="text" class="input" name="dni" placeholder="Buscar cliente" minlength="8" maxlength="8" required />
+				<button type="submit" class="btn w-auto btnSearch"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+			</form>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../index.js"></script>
+			<a th:href="@{/newcliente}">
+				<button class="btn w-auto btnAgregar" name="add">
+					<i class="fa-solid fa-circle-plus fa-2xl"></i>
+				</button>
+			</a>
+		</section>
+
+		<nav class="header__nav">
+			<ul class="nav__ul">
+				<li>
+					<a th:href="@{/home}">Citas</a>
+				</li>
+				<li>
+					<a th:href="@{/doctores}">Doctores</a>
+				</li>
+				<li>
+					<a href="#" class="active">Clientes</a>
+				</li>
+				<li>
+					<a th:href="@{/recepcionistas}">Recepcionistas</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<p class="title-h3">👨‍👧‍👦 - Lista Clientes</p>
+		<table class="tbl">
+			<thead class="act">
+				<tr>
+					<th>DNI</th>
+					<th>Nombre</th>
+					<th>Telefono</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente:${clientes}">
+					<td th:text="${cliente.dniUsu}"></td>
+					<td th:text="${cliente.nomUsu}"></td>
+					<td th:text="${cliente.telUsu}"></td>
+					<td>
+						<a th:href="@{/editClient/}+${cliente.dniUsu}">
+							<button class="btn w-auto btnEditar"><i class="fa-solid fa-pen-to-square"></i></button>
+						</a>
+						<a th:href="@{/deleteClient/}+${cliente.dniUsu}">
+							<button class="btn w-auto btnEliminar" id="delete"><i class="fa-solid fa-trash"
+									style="color: #fff;"></i></button>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</main>
+
+	<a href="/logout" class="btn w-auto">Cerrar sesión</a>
+
 </body>
 
 </html>

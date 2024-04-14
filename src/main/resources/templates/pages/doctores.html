@@ -6,15 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doctores - OS</title>
   <link rel="stylesheet" href="../style.css">
-  <link rel="shortcut icon" href="../img/home.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/c851fe2c54.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <header class="header">
-    <section class="secBotones">
+    <section class="section">
       <h1 class="header__title">Odonto-Salud</h1>
-      <a th:href="@{/newdoctores}">
-        <button class="btnHome btnAgregar" name="add">Nuevo Doctor</button>
+      <a th:href="@{/newdoctor}">
+        <button class="btn w-auto btnAgregar" name="add">
+          <i class="fa-solid fa-circle-plus fa-2xl"></i>
+        </button>
       </a>     
     </section>
     
@@ -36,14 +39,14 @@
     </nav>
   </header>
   <main>
+    <p class="title-h3">👨🏻‍⚕️ - Doctores Activos</p>
     <table class="tbl">
-      <thead>
+      <thead class="act">
         <tr>
           <th>Colegiatura</th>
           <th>Nombre</th>
           <th>Telefono</th>
           <th>Sueldo</th>
-          <th>Estado</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -53,13 +56,42 @@
           <td th:text="${doctor.nomDoc}"></td>
           <td th:text="${doctor.telDoc}"></td>
           <td th:text="${doctor.sueDoc}"></td>
-          <td th:text="${doctor.estDoc}"></td>
           <td>
-            <a>
-              <button class="btnHome btnEditar">Editar</button>
+            <a th:href="@{/editDoctor/}+${doctor.idDoc}">
+              <button class="btn w-auto btnEditar"><i class="fa-solid fa-pen-to-square"></i></button>
             </a>
-            <a>
-              <button class="btnHome btnEliminar" id="delete">Eliminar</button>
+            <a th:href="@{/deleteDoctor/}+${doctor.idDoc}">
+              <button class="btn w-auto btnEliminar" id="delete"><i class="fa-solid fa-trash" style="color: #fff;"></i></button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+    
+    <p class="title-h3">🔓 - Otros doctores</p>
+    <table class="tbl">
+      <thead class="ina">
+        <tr>
+          <th>Colegiatura</th>
+          <th>Nombre</th>
+          <th>Telefono</th>
+          <th>Sueldo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="doctor:${doctoresInac}">
+          <td th:text="${doctor.numDoc}"></td>
+          <td th:text="${doctor.nomDoc}"></td>
+          <td th:text="${doctor.telDoc}"></td>
+          <td th:text="${doctor.sueDoc}"></td>
+          <td>
+            <a th:href="@{/editDoctor/}+${doctor.idDoc}">
+              <button class="btn w-auto btnEditar"><i class="fa-solid fa-pen-to-square"></i></button>
+            </a>
+            <a th:href="@{/deleteDoctor/}+${doctor.idDoc}">
+              <button class="btn w-auto btnEliminar" id="delete"><i class="fa-solid fa-trash" style="color: #fff;"></i></button>
             </a>
           </td>
         </tr>
@@ -69,8 +101,8 @@
 
   </main>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <a href="/logout" class="btn w-auto">Cerrar sesión</a>
+
 </body>
 
 </html>

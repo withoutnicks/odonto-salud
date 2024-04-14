@@ -20,23 +20,26 @@ public class DoctorsService implements IDoctorsService {
 	public List<Doctors> listDoctors() {
 		return data.findByEstDoc(Doctors.EstDoc.activo);
 	}
+	
+	@Override
+	public List<Doctors> listDoctorsInac() {
+		return data.findByEstDoc(Doctors.EstDoc.inactivo);
+	}
 
 	@Override
 	public Optional<Doctors> listIdDoc(int idDoc) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return data.findById(idDoc);
 	}
 
 	@Override
 	public int saveDoc(Doctors d) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void deleteDoc(int idDoc) {
-		// TODO Auto-generated method stub
+		int res = 0;
+		Doctors doc = data.save(d);
+		if(!doc.equals(null)) {
+			res = 1;
+		}
 		
+		return res;
 	}
 
 }

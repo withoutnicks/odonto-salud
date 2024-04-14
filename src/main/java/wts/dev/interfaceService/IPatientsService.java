@@ -9,5 +9,4 @@ public interface IPatientsService {
 	public List<Patients> listPatients();
 	public Optional<Patients> listIdCli(String idCli);
 	public int saveCli(Patients p);
-	public void deleteCli(String idCli);
 }

@@ -29,26 +29,4 @@ public class MainController {
 	    return "redirect:/";
 	}
 	
-
-	/* FORMS */
-
-	@GetMapping("/newcitas")
-	public String FrmCitas() {
-		return "forms/formCitas.html";
-	};
-
-	@GetMapping("/newclientes")
-	public String FrmClientes() {
-		return "forms/formClientes.html";
-	};
-
-	@GetMapping("/newdoctores")
-	public String FrmDoctores() {
-		return "forms/formDoctores.html";
-	};
-
-	@GetMapping("/newrecep")
-	public String FrmRecep() {
-		return "forms/formRecep.html";
-	};
 }

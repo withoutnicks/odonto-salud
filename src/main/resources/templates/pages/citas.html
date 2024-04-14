@@ -6,15 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Citas - OS</title>
   <link rel="stylesheet" href="../style.css">
-  <link rel="shortcut icon" href="../img/home.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/c851fe2c54.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <header class="header">
-    <section class="secBotones">
+    <section class="section">
       <h1 class="header__title">Odonto-Salud</h1>
       <a th:href="@{/newcitas}">
-        <button class="btnHome btnAgregar" name="add">Nueva Cita</button>
+        <button class="btn w-auto btnAgregar" name="add">
+          <i class="fa-solid fa-circle-plus fa-2xl"></i>
+        </button>
       </a>     
     </section>
     
@@ -35,48 +38,48 @@
       </ul>
     </nav>
   </header>
+  <hr />
   <main>
-    <table class="tbl act">
-      <thead>
+    <p class="title-h3">🕓 - Citas Activas</p>
+    <table class="tbl">
+      <thead class="act">
         <tr>
           <th>Fecha cita</th>
           <th>Descripcion</th>
           <th>Doctor</th>
           <th>Cliente</th>
           <th>Recepcionista</th>
-          <th>Estado</th>
           <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr th:each="cita:${citasActivas}">
-          <td th:text="${cita.dateCit}"></td>
+          <td th:text="${cita.dateCit}">HOLAA</td>
           <td th:text="${cita.razCit}"></td>
           <td th:text="${cita.docId.nomDoc}"></td>
           <td th:text="${cita.dniUsu.nomUsu}"></td>
           <td th:text="${cita.recId.nomRec}"></td>
-          <td th:text="${cita.estCit}"></td>
           <td>
-            <a>
-              <button class="btnHome btnEditar">Editar</button>
+            <a th:href="@{/editQuotes/}+${cita.idCit}">
+              <button class="btn w-auto btnEditar"><i class="fa-solid fa-pen-to-square"></i></button>
             </a>
             <a>
-              <button class="btnHome btnEliminar" id="delete">Eliminar</button>
+              <button class="btn w-auto btnEliminar" id="delete"><i class="fa-solid fa-trash" style="color: #fff;"></i></button>
             </a>
           </td>
         </tr>
       </tbody>
     </table>
     
+    <p class="title-h3">📆 - Citas Programadas</p>
     <table class="tbl pro">
-      <thead>
+      <thead class="pro">
         <tr>
           <th>Fecha cita</th>
           <th>Descripcion</th>
           <th>Doctor</th>
           <th>Cliente</th>
           <th>Recepcionista</th>
-          <th>Estado</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -87,13 +90,12 @@
           <td th:text="${cita.docId.nomDoc}"></td>
           <td th:text="${cita.dniUsu.nomUsu}"></td>
           <td th:text="${cita.recId.nomRec}"></td>
-          <td th:text="${cita.estCit}"></td>
           <td>
-            <a>
-              <button class="btnHome btnEditar">Editar</button>
+            <a th:href="@{/editQuotes/}+${cita.idCit}">
+              <button class="btn w-auto btnEditar"><i class="fa-solid fa-pen-to-square"></i></button>
             </a>
             <a>
-              <button class="btnHome btnEliminar" id="delete">Eliminar</button>
+              <button class="btn w-auto btnEliminar" id="delete"><i class="fa-solid fa-trash" style="color: #fff;"></i></button>
             </a>
           </td>
         </tr>
@@ -102,7 +104,7 @@
 
   </main>
 
-  <a href="/logout" class="btnHome">Cerrar sesión</a>
+  <a href="/logout" class="btn w-auto">Cerrar sesión</a>
 
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
